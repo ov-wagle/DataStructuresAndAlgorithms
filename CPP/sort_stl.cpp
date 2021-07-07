@@ -10,10 +10,15 @@ bool comparator(int currElement, int nextElement) {
 }
 
 int main(int argc, char const *argv[]) {
-	int array[100], numOfElements, i;
+	int array[100] = { 0 }, numOfElements, i;
 
 	cout << "Enter number of elements to enter : \n";
 	cin >> numOfElements;
+
+	if (numOfElements > 100) {
+		cout << "100 is the limit\n";
+		return -1;
+	}
 
 	for (i = 0; i < numOfElements; i++) {
 		cin >> array[i];
