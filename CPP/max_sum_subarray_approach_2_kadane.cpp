@@ -22,9 +22,7 @@ int main(int argc, char const *argv[]) {
 		} else {
 			currSum += array[i];
 
-			if (currSum > maxSum) {
-				maxSum = currSum;
-			}
+			maxSum = max(maxSum, currSum);
 		}
 	}
 
