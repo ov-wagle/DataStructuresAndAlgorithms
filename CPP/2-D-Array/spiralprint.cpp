@@ -1,10 +1,6 @@
 #include <iostream>
 
 using namespace std;
-
-SR ER SC EC
-0  2  0  3
-1  1      2
 	
 void spiral_print(int a[][100], int row, int col) {
 	int startRow = 0, startCol = 0, endRow = row - 1, endCol = col - 1, i;
