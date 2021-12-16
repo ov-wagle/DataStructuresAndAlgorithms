@@ -3,10 +3,11 @@
 
 using namespace std;
 
-#define AVERAGE(x, y) 		(x + y) / 2
+#define AVERAGE_CEIL(x, y) 		ceil(float(x + y) / 3)
+#define AVERAGE_FLOOR(x, y) 	floor(float(x + y) / 3)
 
 int main(int argc, char const *argv[]) {
-	int array[10] = {3, 10, 24, 31, 43, 59, 68, 76, 81, 99};
+	int array[2] = {3, 10};
 	int search, sizeOfArray, count = 0, startIndex = 0, endIndex, mean;
 
 	cout << "Enter the element to search in the array : ";
@@ -17,8 +18,11 @@ int main(int argc, char const *argv[]) {
 	endIndex = sizeOfArray;
 
 	while (count != sizeOfArray) {
-		mean = AVERAGE(startIndex, endIndex);
-
+		if (sizeOfArray <= 2) {
+			mean = AVERAGE_FLOOR(startIndex, endIndex);
+		} else {
+			mean = AVERAGE_CEIL(startIndex, endIndex);
+		}
 		if (search == array[mean]) {
 			break;
 		}
@@ -30,6 +34,8 @@ int main(int argc, char const *argv[]) {
 		if (array[mean] > search) {
 			endIndex = mean;
 		}
+
+		cout << startIndex << " " << endIndex << endl;
 
 		count++;
 	}
