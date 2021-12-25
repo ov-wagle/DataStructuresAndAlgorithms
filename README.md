@@ -196,3 +196,23 @@ while (right < size) {
 		break;
 	}
 }
+
+14. https://www.algoexpert.io/questions/Subarray%20Sort
+
+Subarray Sort
+
+Approach
+1. Search for elements in the array such that either its previous element is larger or next element is smaller than the current element.
+2. use two variables, start and end initialized to -1.
+3. When first such element is encountered, assign start and end with its index.
+4. Iterate through the array and check if the start element > current number, assign i to start.
+if (start == -1 or array[start] > array[i]) {
+	start = i;
+}
+5. Similarly, check if the end element < current element, assign i to end.
+if (end == -1 or array[end] < array[i]) {
+	end = i;
+}
+6. Once start and end index are retrieved, we will iterate through the array once again to check where these elements can be placed.
+7. Start element should belong to a place where its next element is greater than it.
+8. Similarly, end element should be placed such that the end element is less than end + 1 element.
