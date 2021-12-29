@@ -216,3 +216,39 @@ if (end == -1 or array[end] < array[i]) {
 6. Once start and end index are retrieved, we will iterate through the array once again to check where these elements can be placed.
 7. Start element should belong to a place where its next element is greater than it.
 8. Similarly, end element should be placed such that the end element is less than end + 1 element.
+
+15. https://leetcode.com/problems/remove-nth-node-from-end-of-list/ 
+https://leetcode.com/problems/swapping-nodes-in-a-linked-list/
+
+
+Above two problems uses the same two pointer approach
+
+Two pointer approach
+
+1. Initialise two dummy pointers with head of the list.
+2. Use one dummy to iterate till nth node from the beginning.
+
+	while (--n) {
+		currentNode = currentNode->next;
+	}
+3. The currentNode is already at the nth node from the start.
+4. Use the position of the currentNode to help make second dummy variable reach nth position from the end.
+
+	while (currentNode->next != nullptr) {
+            currentNode = currentNode->next;
+            prevNode = removeNode;
+            removeNode = removeNode->next;
+        }
+5. Thus once currentNode reaches its end, remove node will reach to the nth position from the end.
+6. There are two cases, the nth node from the end could be any node or it can be the head node.
+
+	if (prevNode == nullptr) {		// nth node is the head node. Hence no prevNode to the headNode.
+            prevNode = new ListNode();
+            prevNode->next = removeNode->next;
+            delete head;
+            head = prevNode->next;
+        } else {
+            prevNode->next = removeNode->next;
+        }
+
+
