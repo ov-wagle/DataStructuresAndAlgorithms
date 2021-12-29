@@ -252,3 +252,30 @@ Two pointer approach
         }
 
 
+16. https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/submissions/
+
+Approach 1: 
+
+1. Calculate the length of the list by iterating through the list till you reach nullptr.
+2. Calculate the middle node
+3. Iterate through the loop again and when the node reaches the middle node, if the middle node is head node, 
+
+	if (prevNode == nullptr) {
+                prevNode = new ListNode();
+                delete head;
+                head = prevNode->next;
+        } else {
+        	prevNode->next = currentNode->next;
+        }
+
+Approach 2:
+1. Use 2 pointers, fast and slow. fast will jump 2 place while slow will iterate one node at a time.
+2. This way, fast will reach the end while slow will remain on the middle node.
+3. 
+	if (prevNode == nullptr) {
+                prevNode = new ListNode();
+                delete head;
+                head = prevNode->next;
+        } else {
+        	prevNode->next = currentNode->next;
+        }
