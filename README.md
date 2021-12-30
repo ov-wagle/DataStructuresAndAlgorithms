@@ -279,3 +279,28 @@ Approach 2:
         } else {
         	prevNode->next = currentNode->next;
         }
+
+17. https://leetcode.com/problems/rotate-array/
+
+Approach 1: Time complexity: O(n),  Space complexity : O(n)
+
+1. Initialise a vector of size equal to size of input array.
+2. use the following formula to calculate k
+	remainder = k % size;
+        k = (remainder == 0) ? size : remainder;
+
+        // This calculates the actual value of k when k > length of the input array.]
+3. Use two for loops, one from size - k to size to place those items in the output array, second from 0 to size - k to place the rest items in the array.
+
+Approach 2: Time complexity : O(n) SPace complexity : O(1)
+
+1. Calculate k using k %= size.
+2. Write a reverse function that swaps the elements until start < end.
+3. Call reverse function 3 times one from  0 to size - 1, 0 to k - 1 and last k to size - 1
+
+// Input Array : [1 2 3 4 5 6 7], k = 3 Expected op array : [5 6 7 1 2 3 4]
+
+k = 3 % 7 = 3
+reverse(nums, 0, size - 1) -> [7 6 5 4 3 2 1]
+reverse(nums, 0 k - 1) -> [5 6 7 4 3 2 1]
+reverse(nums, k, size - 1) -> [5 6 7 1 2 3 4]
