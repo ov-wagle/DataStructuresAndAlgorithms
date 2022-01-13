@@ -304,3 +304,28 @@ k = 3 % 7 = 3
 reverse(nums, 0, size - 1) -> [7 6 5 4 3 2 1]
 reverse(nums, 0 k - 1) -> [5 6 7 4 3 2 1]
 reverse(nums, k, size - 1) -> [5 6 7 1 2 3 4]
+
+18. https://www.algoexpert.io/questions/Longest%20Palindromic%20Substring
+
+Approach : Time complexity : O(n^2) Space Complexity : O(n)
+
+1. Palindrome is a word which is a mirror image of one another from middle.
+2. Thus, we will have one loop that will iterate through every character in the string.
+3. For every character, we will check if right and left characters are same. If yes, we will decrement left and increment right till the point when str[left] != str[right]
+4. We will calculate the difference of end and start with this equation
+	int sum = right - (left + 1); // Adding 1 to left as it would be decremented and the right element of current left is a part of a palindrome
+
+5. If the current difference > maxLength, we will store the length and also the starting index i.e left + 1.
+6. Similarly, when a palindrome is a even length string, we don't have a middle character. Thus, in this case, we check if str[i - 1] == str[i].
+7. If yes, we store left as i - 1 and right as i. we perform the same steps from 3 to 5.
+8. At the end, we return the substring of the string from startIndex till maxLength.
+
+19. https://leetcode.com/problems/longest-substring-without-repeating-characters/
+
+Approach: 
+
+1. This is a sliding window problem. Use two pointers, pointer i to iterate through the string and start pointer to move when a repeated element is encountered.
+2. We will use a hashmap to store unique characters. if the count is 0 for a character, store it in the hash map, calculate the maxLength of the subString by calculating size of the hash map.
+3. If a character is repeated, remove the character that is pointed by start pointer. Increment start and decrement i to consider the current element again.
+
+20. https://leetcode.com/problems/next-greater-element-i/
